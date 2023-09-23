@@ -28,25 +28,30 @@ export const Todolist = () => {
     return (
 
     <>
-     <div>Todo List</div>
-     <input 
+    <div className='all'>
+     <div className='header'>Todo List</div>
+     <div >
+     <input className='input'
      type='text' 
      placeholder='Todo item' 
      value={todo} 
      onChange={(e)=>settodo(e.target.value)}
-     
+     required
      />
-     <button  onClick={adddtata}>Add</button>
-
-      <h1>Todo item</h1>
+    
+    
+     <button  onClick={adddtata} className='add'>Add</button>
+     </div>
+      <h1 className='header'>Todo item</h1>
        {list!=[] && list.map((data, i)=>{
             return<div key={i}>
-                <p>{data}</p>
-                <button onClick={()=>removelist(i)}>Remove</button>
+                <p className='p1'>{data}</p>
+                <button onClick={()=>removelist(i) } className="remove">Remove</button>
             </div>
        })}
 
-       <div>{list.length>=1 &&  <button onClick={removeall}>Rest List</button>}</div>    
+       <div>{list.length>=1 && <button onClick={removeall} className="removeall">Rest List</button>}</div>    
+       </div>
     </>
   )
 }
